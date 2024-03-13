@@ -58,25 +58,14 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
 
 **Envio de Notificações:** Automatiza o envio de e-mails para notificar sobre faltas excessivas.
  
-```plantuml
-@startuml
-left to right direction
-actor Professor
-actor Pai
-rectangle "Sistema de Presença de Aluno - Octogono" {
-    Professor -- (Fazer Login)
-    Professor -- (Escolher Classe)
-    Professor -- (Escolher ação para classe)
-    Professor -- (Fazer Chamada ou\nRegistro de faltas)
-    Professor -- (Observar Estatisticas ou\nRelatórios de faltas)
-    Professor -- (Observar Lista de Estudantes)
-    Professor -- (Observar Estudante)
-    Pai -- (Fazer Login)
-    Pai -- (Selecionar matéria)
-    Pai -- (Observar Estudante)  
-}
-@enduml
-```
+<figure>
+    <img src="./Document/Images/diagrama-caso-de-uso.png"
+        alt="Diagrama de Caso de Uso"
+        title="Diagrama de Caso de Uso"
+        height=600
+    />
+    <a href="" >Código em PlantUml</a>
+</figure>
 
 ## Descrição detalhada dos casos de uso principais
 
