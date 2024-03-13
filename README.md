@@ -69,11 +69,221 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
 
 ## Descrição detalhada dos casos de uso principais
 
-**Registro de Presenças:** Este caso de uso permite ao professor acessar o sistema no início das aulas e após o intervalo para registrar as presenças e faltas dos alunos. O professor loga no sistema, seleciona a turma correspondente e marca os alunos como presentes ou ausentes. O sistema deve validar se o professor está autorizado para a turma e registrar corretamente as presenças e faltas. Deve também atualizar o banco de dados em tempo real para manter o acompanhamento da frequência dos alunos e oferecer uma interface amigável e intuitiva.
+### Fazer Login - ( CDU001 )
 
-**Consulta de Relatórios:** Neste caso de uso, o sistema disponibiliza a geração de relatórios de faltas, que podem ser personalizados e agrupados por critérios variados, como data, ano, turma, professor, disciplina e aluno. O objetivo é facilitar a análise e o acompanhamento de faltas por parte dos professores e da administração da escola. Os relatórios devem ser de fácil compreensão e devem permitir a exportação dos dados para outros formatos, como PDF ou planilhas, se necessário.
+- **Resumo:** O Professor ou Pai que deseja acessar a plataforma devera realizar o login já pre-registrado pela escola, utilizando o usuário cadastrado e senha;
 
-**Envio de Notificações:** Quando o sistema identifica que um aluno está com o percentual de presença abaixo de 80%, ele automaticamente dispara uma notificação para os pais ou responsáveis. Esse processo deve garantir que as notificações sejam enviadas de maneira confiável e segura, com a opção de acompanhar o envio e recebimento das mensagens.
+- **Ator Principal:**
+    - Professor
+    - Pai
+
+- **Pré-condições:** Estar Cadastrado no sistema
+
+- **Pós-condições:** Acessar o conteúdo pertinente a cada papel (Pai, ou Professor)
+
+- **Fluxo Principal:**
+    
+    1. O usuário insere o Login e Senha e aperta no botão de LogIn
+    2. O sistema envia os dados para o servidor
+    3. O servidor a compara a senha enviada com a senha existente no DB
+    4. Retorna a permissão de login
+
+- **Fluxo de Exceção:**
+    1. O usuário insere o Login e Senha e aperta no botão de LogIn
+    2. O sistema envia os dados para o servidor
+    3. O servidor compara a senha com a senha existente no DB 
+    4. Retorna mensagem de Senha Inválida
+
+### Escolher Classe - ( CDU002 )
+
+- **Resumo:** O Professor pode Selecionar a classe que à qual ira lecionar no momento da chamada, para os professores de apenas uma matéria esta etapa pode ser pulada diretamente para as opções de turma
+
+- **Ator Principal:** Professor
+
+- **Pré-condições:** Ter Feito Login
+
+- **Pós-condições:** Acesso à turma Selecionada
+
+- **Fluxo Principal:**
+    
+    1. O usuário clica no botão correspondente a classe à qual irá lessionar
+    2. O Sistema envia o ID e token de acesso ao Servidor
+    3. O servidor Valida o token de acesso
+    4. O servidor responde com os dados da classe selecionada
+
+- **Fluxo de Exceção:** 
+
+    1. O usuário clica no botão correspondente a classe à qual irá lessionar
+    2. O Sistema envia o ID e token de acesso ao Servidor
+    3. O servidor não Valida o token de acesso
+    4. O servidor responde com seção expirada.
+    5. O usuário é levado para a tela de Login novamente
+
+### Escolher ação para classe - ( CDU003 )
+
+- **Resumo:** O Professor pode escolher entre 3 opçoes, *Fazer Chamada*, *Verificar Estatísticas* ou *Ver Lista de Alunos*
+
+- **Ator Principal:** Professor
+
+- **Pré-condições:** Ter Selecionado a turma
+
+- **Pós-condições:** Acessar a página escolhida
+
+- **Fluxo Principal:**
+    
+    1. O usuário escolhe opção que deseja
+    2. O ID da opção e o token de acesso são enviados ao Servidor.
+    3. O Servidor Valida o token de acesso
+    4. O Servidor verifica o privilégio do usuário
+    5. O Servidor retorna os dados para a pagina selecionada de acordo com o privilégio
+    
+    Obs:  O fluxo para os tres items é o mesmo, variando somente o ID e permissões
+
+- **Fluxo de Exceção:**
+
+    1. O usuário clica no botão correspondente a classe à qual irá lessionar
+    2. O Sistema envia o ID e token de acesso ao Servidor
+    3. O servidor não Valida o token de acesso
+    4. O servidor responde com seção expirada.
+    5. O usuário é levado para a tela de Login novamente
+
+### Fazer Chamada ou Registro de faltas - ( CDU004 )
+
+- **Resumo:** O Professor irá selecionar os alunos presentes clicando sobre o nome, após o término da chamada os presenças serão contabilizadas pelo sistema
+
+- **Ator Principal:** Professor
+
+- **Pré-condições:** Ter Acessado a pagina de chamada da turma
+
+- **Pós-condições:** Gravação dos dados de chamada
+
+- **Fluxo Principal:**
+    
+    1. O usuário clica em cada um dos botões que representam os alunos para a determinada Sala de Aula
+    2. O sistema envia um o token de Acesso juntamente com um Objeto contendo os alunos e seus status
+    3. O servidor valida o token de Acesso
+    4. O Servidor valida os Dados
+    5. O servidor faz UPDATE dos dados no DB
+    6. O servidor retorna a resposta de sucesso
+
+- **Fluxo de Exceção:**
+    
+    1. O usuário clica no botão de Finalizar Chamada
+    2. O Sistema envia o ID e token de acesso ao Servidor
+    3. O servidor não Valida o token de acesso
+    4. O servidor responde com seção expirada.
+    5. O usuário é levado para a tela de Login novamente
+
+    OU
+
+    1. O usuário clica no botão de Finalizar Chamada
+    2. O Sistema envia o ID e token de acesso ao Servidor
+    3. O servidor Valida o token de acesso
+    4. O Servidor valida os Dados
+    5. O servidor responde dados inválidos
+    6. O usuário recebe a mensagem de "Preencher novamente a Chamada"
+
+### Observar Estatisticas ou Relatórios de faltas - ( CDU005 )
+
+- **Resumo:** O Professor poderá ver as estatísticas de maneira simples nesta página, com os dados de quantas aulas houveram e um grafico mostrando quanto das aulas cada alunos estava presente
+
+- **Ator Principal:** Professor
+
+- **Pré-condições:** Ter Acessado a pagina de estatísticas
+
+- **Pós-condições:** Ter acesso as estatísticas de presença dos alunos
+
+- **Fluxo Principal:**
+    
+    1. O Usuário pode seleciona um filtro para os dados
+    2. O sistema envia o token de acesso ao servidor
+        1. O sistema (front-end) executa o filtro nos dados selecionados
+    3. O servidor valida o token de acesso
+    4. O servidor responde com sessão valida
+        1. O front-end responde com os dados filtrados
+
+
+- **Fluxo de Exceção:**
+    1. O usuário clica no botão correspondente ao filtro que deseja vizualizar
+    2. O Sistema envia o ID e token de acesso ao Servidor
+    3. O servidor não Valida o token de acesso
+    4. O servidor responde com seção expirada.
+    5. O usuário é levado para a tela de Login novamente
+
+
+### Observar Lista de Estudantes - ( CDU006 )
+
+- **Resumo:** O professor poderá observar a lista de alunos ao clicar em algum aluno Observar Estudante
+
+- **Ator Principal:** Professor
+
+- **Pré-condições:** Ter acessado Lista de Alunos
+
+- **Pós-condições:** Poder Observar Estudante
+
+- **Fluxo Principal:**
+    
+    1. O usuário seleciona um estudante
+    2. O sistema envia o ID do estudante e token de acesso ao Servidor
+    3. O Servidor valida o Token de acesso
+    4. O servidor response com os dados do aluno selecionado 
+
+- **Fluxo de Exceção:**
+    1. O usuário clica no botão correspondente ao estudante que deseja vizualizar
+    2. O Sistema envia o ID e token de acesso ao Servidor
+    3. O servidor não Valida o token de acesso
+    4. O servidor responde com seção expirada.
+    5. O usuário é levado para a tela de Login novamente
+
+### Observar Estudante - ( CDU007 )
+
+- **Resumo:** Os atores poderão vizualizar a estatística referente ao aluno selecionado, no caso de pai, somente do filho
+
+- **Ator Principal:** 
+    - Professor
+    - Pai
+
+- **Pré-condições:** Ter feito Login
+
+- **Pós-condições:** Ter acesso as estatísticas para o dado Aluno
+
+- **Fluxo Principal:**
+    
+    1. O Usuário altera o mês do calendário.
+    2. O sistema envia o mes requerido e o token de acesso ao Servidor
+    3. O servidor Valida o token de acesso
+    4. O servidor retorna os dados para o mes solicitado
+
+- **Fluxo de Exceção:**
+    1. O Usuário altera o mês do calendário.
+    2. O sistema envia o mes requerido e o token de acesso ao Servidor
+    3. O servidor não Valida o token de acesso
+    4. O servidor responde com seção expirada.
+    5. O usuário é levado para a tela de Login novamente
+
+### Selecionar matéria - ( CDU008 )
+
+- **Resumo:** O Pai poderá selecionar a matéria a qual quer observar a presença de seu filho
+
+- **Ator Principal:** Pai
+
+- **Pré-condições:** ter feito Login
+
+- **Pós-condições:** Ter Acesso as presenças de seu filho
+
+- **Fluxo Principal:**
+    
+    1. O Usuário (Pai) seleciona a matéria da qual deseja vizualizar dados
+    2. O sistema envia o ID da materia juntamente com token de acesso ao Servidor
+    3. O Servidor Valida o token de acesso
+    4. O servidor retorna os dados do aluno para a matéria
+
+- **Fluxo de Exceção:**
+    1. O usuário clica no botão correspondente a matéria que deseja vizualizar dados
+    2. O Sistema envia o ID e token de acesso ao Servidor
+    3. O servidor não Valida o token de acesso
+    4. O servidor responde com seção expirada.
+    5. O usuário é levado para a tela de Login novamente
 
 
 ## Prototipagem de Tela - wireframe
