@@ -58,17 +58,25 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
 
 **Envio de Notificações:** Automatiza o envio de e-mails para notificar sobre faltas excessivas.
  
-<figure>
-    <img 
-        src="./Document/Images/caso-de-uso-01.png"
-        alt="Diagrama de Caso de uso 1"
-        title="Diagrama de Caso de uso 1"
-        height=600
-    />
-    <figcaption>
-    <a href="https://lucid.app/lucidspark/51b70ef5-7908-445c-a6dc-1cba7033726c/edit?viewport_loc=676%2C2212%2C7680%2C3644%2C0_0&invitationId=inv_de803498-c088-465d-af5b-c82e0ddab718">See on Lucid Chart</a>
-    </figcaption>
-</figure>
+```plantuml
+@startuml
+left to right direction
+actor Professor
+actor Pai
+rectangle "Sistema de Presença de Aluno - Octogono" {
+    Professor -- (Fazer Login)
+    Professor -- (Escolher Classe)
+    Professor -- (Escolher ação para classe)
+    Professor -- (Fazer Chamada ou\nRegistro de faltas)
+    Professor -- (Observar Estatisticas ou\nRelatórios de faltas)
+    Professor -- (Observar Lista de Estudantes)
+    Professor -- (Observar Estudante)
+    Pai -- (Fazer Login)
+    Pai -- (Selecionar matéria)
+    Pai -- (Observar Estudante)  
+}
+@enduml
+```
 
 ## Descrição detalhada dos casos de uso principais
 
