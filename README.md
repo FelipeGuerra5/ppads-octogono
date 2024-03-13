@@ -1,13 +1,14 @@
 ## Índice
-- [Introdução](#Introdução)
-- [Informações sobre a empresa](#Informações-sobre-a-empresa)
-- [Escopo do projeto](#Escopo-do-projeto)
-- [Interessados](#Interessados)
-- [Objetivos funcionais](#Objetivos-funcionais)
-- [Objetivos não-funcionais](#Objetivos-não-funcionais)
-- [COTS (Commercial Off-The-Shelf)](#COTS---Commercial-Off-The-Shelf)
-- [Casos de uso](#Casos-de-uso)
-- [Descrição detalhada dos casos de uso principais](#Descrição-detalhada-dos-casos-de-uso-principais)
+- [Introdução](#introdução)
+- [Informações sobre a empresa](#informações-sobre-a-empresa)
+- [Escopo do projeto](#escopo-do-projeto)
+- [Interessados](#interessados)
+- [Objetivos funcionais](#objetivos-funcionais)
+- [Objetivos não-funcionais](#objetivos-não-funcionais)
+- [COTS (Commercial Off-The-Shelf)](#cots---commercial-off-the-shelf)
+- [Casos de uso](#casos-de-uso)
+- [Descrição detalhada dos casos de uso principais](#descrição-detalhada-dos-casos-de-uso-principais)
+- [Protótipo de Tela](#prototipagem-de-tela---wireframe)
 
 ## Introdução
 
@@ -59,20 +60,15 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
  
 <figure>
     <img 
-        src="./Document/Images/caso-de-uso-o1.png"
+        src="./Document/Images/caso-de-uso-01.png"
         alt="Diagrama de Caso de uso 1"
         title="Diagrama de Caso de uso 1"
-        width=975
-        height=983
+        height=600
     />
     <figcaption>
     <a href="https://lucid.app/lucidspark/51b70ef5-7908-445c-a6dc-1cba7033726c/edit?viewport_loc=676%2C2212%2C7680%2C3644%2C0_0&invitationId=inv_de803498-c088-465d-af5b-c82e0ddab718">See on Lucid Chart</a>
     </figcaption>
 </figure>
-
-
-
-
 
 ## Descrição detalhada dos casos de uso principais
 
@@ -81,3 +77,76 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
 **Consulta de Relatórios:** Neste caso de uso, o sistema disponibiliza a geração de relatórios de faltas, que podem ser personalizados e agrupados por critérios variados, como data, ano, turma, professor, disciplina e aluno. O objetivo é facilitar a análise e o acompanhamento de faltas por parte dos professores e da administração da escola. Os relatórios devem ser de fácil compreensão e devem permitir a exportação dos dados para outros formatos, como PDF ou planilhas, se necessário.
 
 **Envio de Notificações:** Quando o sistema identifica que um aluno está com o percentual de presença abaixo de 80%, ele automaticamente dispara uma notificação para os pais ou responsáveis. Esse processo deve garantir que as notificações sejam enviadas de maneira confiável e segura, com a opção de acompanhar o envio e recebimento das mensagens.
+
+
+## Prototipagem de Tela - wireframe
+<br>
+
+### Login
+<div style="display:flex; justify-content:space-around">
+<img src="./Document/Images/Desktop-wireframe/login.png" height=350px />
+<img src="./Document/Images/Mobile-wireframe/login.png" height=350px />
+</div>
+<br>
+
+### Teacher Landing Page
+<div style="display:flex; justify-content:space-around">
+<img src="./Document/Images/Desktop-wireframe/teacher-landing-page.png" height=350px />
+<img src="./Document/Images/Mobile-wireframe/teacher-landing-page.png" height=350px />
+</div>
+<br>
+
+### Patent Landing Page
+<div style="display:flex; justify-content:space-around">
+<img src="./Document/Images/Desktop-wireframe/parent-landing-page.png" height=350px />
+<img src="./Document/Images/Mobile-wireframe/parent-landing-page.png" height=350px />
+</div>
+<br>
+
+### Student In Class
+<div style="display:flex; justify-content:space-around">
+<img src="./Document/Images/Desktop-wireframe/student-in-class.png" height=350px />
+<img src="./Document/Images/Mobile-wireframe/student-in-class.png" height=350px />
+</div>
+<br>
+
+### Teacher Class Options
+<div style="display:flex; justify-content:space-around">
+<img src="./Document/Images/Desktop-wireframe/teacher-class-options.png" height=350px />
+<img src="./Document/Images/Mobile-wireframe/teacher-class-options.png" height=350px />
+</div>
+<br>
+
+### Take Attendance
+<div style="display:flex; justify-content:space-around">
+<img src="./Document/Images/Desktop-wireframe/take-attendance.png" height=350px />
+<img src="./Document/Images/Mobile-wireframe/take-attendance.png" height=350px />
+</div>
+<br>
+
+### Teacher Class Stats
+<div style="display:flex; justify-content:space-around">
+<img src="./Document/Images/Desktop-wireframe/teacher-class-stats.png" height=350px />
+<img src="./Document/Images/Mobile-wireframe/teacher-class-stats.png" height=350px />
+</div>
+<br>
+
+### Student List
+<div style="display:flex; justify-content:space-around">
+<img src="./Document/Images/Desktop-wireframe/student-list.png" height=350px />
+<img src="./Document/Images/Mobile-wireframe/student-list.png" height=350px />
+</div>
+<br>
+
+### Student
+<div style="display:flex; justify-content:space-around">
+<img src="./Document/Images/Desktop-wireframe/student.png" height=350px />
+<img src="./Document/Images/Mobile-wireframe/student.png" height=350px />
+</div>
+<br>
+
+### Mobile Navegation Bar
+<div style="display:flex; justify-content:space-around">
+<img src="./Document/Images/Mobile-wireframe/navbar.png" height=350px />
+</div>
+
