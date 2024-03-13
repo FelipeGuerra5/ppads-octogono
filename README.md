@@ -8,6 +8,8 @@
 - [COTS (Commercial Off-The-Shelf)](#cots---commercial-off-the-shelf)
 - [Casos de uso](#casos-de-uso)
 - [Descrição detalhada dos casos de uso principais](#descrição-detalhada-dos-casos-de-uso-principais)
+- [Diagrama de Classe](#diagrama-de-classe)
+- [Diagrama de Fluxo](#diagrama-de-fluxo)
 - [Protótipo de Tela](#prototipagem-de-tela---wireframe)
 
 ## Introdução
@@ -299,6 +301,9 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
     3. O servidor não Valida o token de acesso
     4. O servidor responde com seção expirada.
     5. O usuário é levado para a tela de Login novamente
+
+## Diagrama de Classe
+<img src="./Document/Images/Diagrama-de-classe/diagrma-de-classe.jpg" />
 
 ## Diagrama de fluxo
 
