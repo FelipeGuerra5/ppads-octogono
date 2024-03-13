@@ -110,6 +110,8 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
     2. O Sistema envia o ID e token de acesso ao Servidor
     3. O servidor Valida o token de acesso
     4. O servidor responde com os dados da classe selecionada
+    5. O servidor responde com os dados da classe selecionada
+    6. O front-end exibe os dados em tela
 
 - **Fluxo de Exceção:** 
 
@@ -131,11 +133,14 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
 
 - **Fluxo Principal:**
     
-    1. O usuário escolhe opção que deseja
-    2. O ID da opção e o token de acesso são enviados ao Servidor.
+    1. O usuário escolhe opção que irá lessionar
+    2. O ID da opção e o token de acesso são enviados ao Servidor
     3. O Servidor Valida o token de acesso
     4. O Servidor verifica o privilégio do usuário
-    5. O Servidor retorna os dados para a pagina selecionada de acordo com o privilégio
+    5. O Servidor resgata os dados do DataBase
+    6. O DataBase restorna os dados solicitados
+    7. O Servidor retorna os dados para a pagina selecionada de acordo 
+    8. O front-end exibe os dados em tela
     
     Obs:  O fluxo para os tres items é o mesmo, variando somente o ID e permissões
 
@@ -159,12 +164,17 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
 
 - **Fluxo Principal:**
     
-    1. O usuário clica em cada um dos botões que representam os alunos para a determinada Sala de Aula
-    2. O sistema envia um o token de Acesso juntamente com um Objeto contendo os alunos e seus status
-    3. O servidor valida o token de Acesso
-    4. O Servidor valida os Dados
-    5. O servidor faz UPDATE dos dados no DB
-    6. O servidor retorna a resposta de sucesso
+    1. O usuário clica em cada um dos botões que representam os 
+    2. O front-end fornece feedback dos dados selecionados e os 
+    3. Usuario finaliza chamada
+    4. O sistema envia um o token de Acesso juntamente com um Objeto 
+    5. O servidor valida o token de Acesso
+    6. Os dados vão para validação
+    7. O Servidor valida os Dados
+    8. O servidor adiciona os dados ao DataBase
+    9. O servidor retorna a resposta de sucesso
+    10. Confirmação é retornada ao client
+    11. Front-end disponibiliza infomação de sucesso
 
 - **Fluxo de Exceção:**
     
@@ -196,12 +206,12 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
 - **Fluxo Principal:**
     
     1. O Usuário pode seleciona um filtro para os dados
-    2. O sistema envia o token de acesso ao servidor
+    2. disponibiliza dropbox
+    3. O sistema envia o token de acesso ao servidor
         1. O sistema (front-end) executa o filtro nos dados selecionados
-    3. O servidor valida o token de acesso
-    4. O servidor responde com sessão valida
+    4. O servidor valida o token de acesso
+    5. O servidor responde com sessão valida
         1. O front-end responde com os dados filtrados
-
 
 - **Fluxo de Exceção:**
     1. O usuário clica no botão correspondente ao filtro que deseja vizualizar
@@ -221,12 +231,14 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
 
 - **Pós-condições:** Poder Observar Estudante
 
-- **Fluxo Principal:**
-    
+- **Fluxo Principal:**  
     1. O usuário seleciona um estudante
     2. O sistema envia o ID do estudante e token de acesso ao Servidor
     3. O Servidor valida o Token de acesso
-    4. O servidor response com os dados do aluno selecionado 
+    4. O servidor faz a requisição de dados ao DataBase
+    5. DataBase retorna dados
+    6. O servidor responde com os dados do aluno selecionado 
+    7. Front-end disponibiliza os dados em tela
 
 - **Fluxo de Exceção:**
     1. O usuário clica no botão correspondente ao estudante que deseja vizualizar
@@ -273,10 +285,13 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
 
 - **Fluxo Principal:**
     
-    1. O Usuário (Pai) seleciona a matéria da qual deseja vizualizar dados
-    2. O sistema envia o ID da materia juntamente com token de acesso ao Servidor
+    1. O Usuário (Pai) seleciona a matéria da qual deseja 
+    2. O sistema envia o ID da materia juntamente com token de acesso 
     3. O Servidor Valida o token de acesso
-    4. O servidor retorna os dados do aluno para a matéria
+    4. O servidor faz requisição dos dados dos aluno para a matéria
+    5. DataBase retorna os dados do aluno para a matéria
+    6. O servidor retorna os dados do aluno para a matéria
+    7. Front-end disponibiliza os dados em tela
 
 - **Fluxo de Exceção:**
     1. O usuário clica no botão correspondente a matéria que deseja vizualizar dados
@@ -284,6 +299,32 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
     3. O servidor não Valida o token de acesso
     4. O servidor responde com seção expirada.
     5. O usuário é levado para a tela de Login novamente
+
+## Diagrama de fluxo
+
+### Fazer Login - ( CDU001 )
+<img src="./Document/Images/Diagrama-de-Fluxo/fazer-login.png" />
+
+### Escolher Classe - ( CDU002 )
+<img src="./Document/Images/Diagrama-de-Fluxo/escolher-classes.png" />
+
+### Escolher ação para classe - ( CDU003 )
+<img src="./Document/Images/Diagrama-de-Fluxo/escoher-acao-para-classes.png" />
+
+### Fazer Chamada ou Registro de faltas - ( CDU004 )
+<img src="./Document/Images/Diagrama-de-Fluxo/fazer-chamada.png" />
+
+### Observar Estatisticas ou Relatórios de faltas - ( CDU005 )
+<img src="./Document/Images/Diagrama-de-Fluxo/observar-estatisticas.png" />
+
+### Observar Lista de Estudantes - ( CDU006 )
+<img src="./Document/Images/Diagrama-de-Fluxo/observar-lista-estudante.png" />
+
+### Observar Estudante - ( CDU007 )
+<img src="./Document/Images/Diagrama-de-Fluxo/observar-estudante.png" />
+
+### Selecionar matéria - ( CDU008 )
+<img src="./Document/Images/Diagrama-de-Fluxo/selecionar-materia.png" />
 
 
 ## Prototipagem de Tela - wireframe
