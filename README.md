@@ -64,7 +64,7 @@ O projeto utilizará Django para o backend, fornecendo uma base sólida para o s
         title="Diagrama de Caso de Uso"
         height=600
     />
-    <a href="https://github.com/FelipeGuerra5/ppads-octogono/blob/main/Document/plantuml/diagrama-de-caso-de-uso.md" target="blank" >Código em PlantUml</a>
+    <a href="https://github.com/FelipeGuerra5/ppads-octogono/blob/main/Document/plantuml/diagrama-de-caso-de-uso.md" target="_blank" >Código em PlantUml</a>
 </figure>
 
 ## Descrição detalhada dos casos de uso principais
