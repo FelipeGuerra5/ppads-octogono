@@ -1,0 +1,34 @@
+{
+    "period": "afternoon",
+    "schoolGrade": 6,
+    "class": "Português",
+    "teacher": "Fernanda",
+    "attendance" : 1,
+    "recorded": true,
+    "studentsList": [
+        {
+            "name": "João",
+            "attending": true
+        },
+        {
+            "name": "Maria",
+            "attending": true
+        },
+        {
+            "name": "Pedro",
+            "attending": false
+        },
+        {
+            "name": "Ana",
+            "attending": true
+        },
+        {
+            "name": "Luiza",
+            "attending": true
+        },
+        {
+            "name": "Lucas",
+            "attending": true
+        }
+    ]
+}
