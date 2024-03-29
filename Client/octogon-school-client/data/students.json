@@ -1,0 +1,89 @@
+{
+    "period": "afternoon",
+    "schoolGrade": 6,
+    "class": "Português",
+    "teacher": "Fernanda",
+    "attendance": 1,
+    "studentsList": [
+        { 
+            "name": "Alexander", 
+            "attending": true 
+        },
+        { 
+            "name": "Amelia", 
+            "attending": true 
+        },
+        { 
+            "name": "Ava", 
+            "attending": true 
+        },
+        { 
+            "name": "Benjamin", 
+            "attending": true 
+        },
+        { 
+            "name": "Charlotte", 
+            "attending": true 
+        },
+        { 
+            "name": "Daniel", 
+            "attending": true 
+        },
+        { 
+            "name": "Ella", 
+            "attending": true 
+        },
+        { 
+            "name": "Emily", 
+            "attending": true 
+        },
+        { 
+            "name": "Emma", 
+            "attending": true 
+        },
+        { 
+            "name": "Ethan", 
+            "attending": true 
+        },
+        { 
+            "name": "Isabella", 
+            "attending": true 
+        },
+        { 
+            "name": "Jacob", 
+            "attending": true 
+        },
+        { 
+            "name": "James", 
+            "attending": true 
+        },
+        { 
+            "name": "Joshua", 
+            "attending": true 
+        },
+        { 
+            "name": "Matthew", 
+            "attending": true 
+        },
+        { 
+            "name": "Mia", 
+            "attending": true 
+        },
+        { 
+            "name": "Michael", 
+            "attending": true 
+        },
+        { 
+            "name": "Olivia", 
+            "attending": true 
+        },
+        { 
+            "name": "Sophia", 
+            "attending": true 
+        },
+        { 
+            "name": "William", 
+            "attending": true 
+        }
+    ]
+}
