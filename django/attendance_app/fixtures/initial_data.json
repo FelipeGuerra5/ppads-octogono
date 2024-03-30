@@ -1,0 +1,19 @@
+[
+  {
+    "model": "attendance_app.teacher",
+    "pk": 1,
+    "fields": {
+      "name": "Fernanda"
+    }
+  },
+  {
+    "model": "attendance_app.class",
+    "pk": 1,
+    "fields": {
+      "period": "afternoon",
+      "schoolGrade": 6,
+      "classMeta": "Português",
+      "teacher": 1
+    }
+  }
+]
