@@ -5,8 +5,8 @@ type Props = {
     }
 }
 
-export default async function getStudents({ params }: Props)  {
-    const res = await fetch('http://localhost:3000/api/students');
+export default async function getStudents({ params }: Props) {
+    const res = await fetch('http://localhost:3000/api/getStudents');
     const students = await res.json();
     return students
 }

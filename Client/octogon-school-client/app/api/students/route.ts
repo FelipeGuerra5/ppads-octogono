@@ -9,6 +9,8 @@ type Props = {
     }
 }
 
-export function GET() {
-        return NextResponse.json(Data)
+export async function GET() {
+    const res = await fetch(`${process.env.IP_API}api/view-attendance/?period=Vespertino&schoolGrade=6&classMeta=Português&teacher=1&date=2024-03-31`);
+    const students = await res.json();
+    return NextResponse.json(students)
 }
