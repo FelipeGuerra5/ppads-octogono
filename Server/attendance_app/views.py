@@ -1,11 +1,10 @@
-from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Class, Student
 from .models import AttendanceRecord
-from .serializers import ClassAttendanceSerializer, StudentListSerializer
+from .serializers import ClassAttendanceSerializer
 
 
 class ClassAttendanceView(APIView):
@@ -54,4 +53,4 @@ class AttendanceRecordView(APIView):
             "studentsList": students_list
         }
 
-        return Response(response_data)
+        return Response(response_data, status.HTTP_201_CREATED)
