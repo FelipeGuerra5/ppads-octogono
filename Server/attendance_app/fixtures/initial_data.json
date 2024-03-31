@@ -155,5 +155,23 @@
   "fields": {
     "name": "Isabela Dias"
   }
-}
+},
+    {
+    "model": "attendance_app.attendancerecord",
+    "pk": 1,
+    "fields": {
+      "classMeta": 1,
+      "student": 1,
+      "attending": true
+    }
+  },
+    {
+    "model": "attendance_app.attendancerecord",
+    "pk": 20,
+    "fields": {
+      "classMeta": 1,
+      "student": 20,
+      "attending": false
+    }
+  }
 ]
