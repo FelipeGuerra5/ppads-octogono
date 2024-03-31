@@ -4,6 +4,12 @@ from rest_framework import status
 from .models import Class, Student, AttendanceRecord
 from .serializers import ClassSerializer, AttendanceRecordSerializer
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Class
+from .serializers import ClassSerializer
+
 
 class ListStudentsView(APIView):
     def get(self, request, *args, **kwargs):
@@ -24,8 +30,24 @@ class ListStudentsView(APIView):
         if not classes.exists():
             return Response([], status=status.HTTP_404_NOT_FOUND)
 
-        serializer = ClassSerializer(classes, many=True)
-        return Response(serializer.data)
+        class_instance = classes.first()
+
+        data = {
+            "period": class_instance.period,
+            "schoolGrade": class_instance.schoolGrade,
+            "classMeta": class_instance.classMeta,
+            "teacher": class_instance.teacher.id,
+            "studentsList": []
+        }
+
+        for cls in classes:
+            class_serializer = ClassSerializer(cls)
+            if cls == class_instance:
+                data['studentsList'] = class_serializer.data['studentsList']
+            else:
+                data['studentsList'].extend(class_serializer.data['studentsList'])
+
+        return Response(data)
 
 
 class RecordAttendanceView(APIView):
