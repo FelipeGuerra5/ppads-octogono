@@ -1,0 +1,24 @@
+{
+    "period": "afternoon",
+    "schoolGrade": 6,
+    "studentsList": [
+        {
+            "nome": "João"
+        },
+        {
+            "nome": "Maria"
+        },
+        {
+            "nome": "Pedro"
+        },
+        {
+            "nome": "Ana"
+        },
+        {
+            "nome": "Luiza"
+        },
+        {
+            "nome": "Lucas"
+        }
+    ]
+}

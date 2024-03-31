@@ -1,0 +1,109 @@
+{
+    "period": "Verpertino",
+    "schoolGrade": 6,
+    "class": "Português",
+    "teacher": "Fernanda",
+    "attendance": 1,
+    "studentsList": [
+        {
+            "name": "Alexander",
+            "id": 1,
+            "attending": true
+        },
+        {
+            "name": "Amelia",
+            "id": 2,
+            "attending": true
+        },
+        {
+            "name": "Ava",
+            "id": 3,
+            "attending": true
+        },
+        {
+            "name": "Benjamin",
+            "id": 4,
+            "attending": true
+        },
+        {
+            "name": "Charlotte",
+            "id": 5,
+            "attending": true
+        },
+        {
+            "name": "Daniel",
+            "id": 6,
+            "attending": true
+        },
+        {
+            "name": "Ella",
+            "id": 7,
+            "attending": true
+        },
+        {
+            "name": "Emily",
+            "id": 8,
+            "attending": true
+        },
+        {
+            "name": "Emma",
+            "id": 9,
+            "attending": true
+        },
+        {
+            "name": "Ethan",
+            "id": 10,
+            "attending": true
+        },
+        {
+            "name": "Isabella",
+            "id": 11,
+            "attending": true
+        },
+        {
+            "name": "Jacob",
+            "id": 12,
+            "attending": true
+        },
+        {
+            "name": "James",
+            "id": 13,
+            "attending": true
+        },
+        {
+            "name": "Joshua",
+            "id": 14,
+            "attending": true
+        },
+        {
+            "name": "Matthew",
+            "id": 15,
+            "attending": true
+        },
+        {
+            "name": "Mia",
+            "id": 16,
+            "attending": true
+        },
+        {
+            "name": "Michael",
+            "id": 17,
+            "attending": true
+        },
+        {
+            "name": "Olivia",
+            "id": 18,
+            "attending": true
+        },
+        {
+            "name": "Sophia",
+            "id": 19,
+            "attending": true
+        },
+        {
+            "name": "William",
+            "id": 20,
+            "attending": true
+        }
+    ]
+}
