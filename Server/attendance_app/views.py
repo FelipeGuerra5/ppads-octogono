@@ -45,7 +45,8 @@ class AttendanceRecordView(APIView):
         # Preparando a lista de estudantes para a resposta
         students_list = [
             {
-                "student": attendance_record.student.name,
+                "student": attendance_record.student.id,
+                "name": attendance_record.student.name,
                 "attending": attendance_record.attending
             } for attendance_record in attendance_records
         ]
