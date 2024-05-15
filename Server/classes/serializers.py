@@ -6,7 +6,14 @@ class StudentSerializer(serializers.ModelSerializer):
         model = Student
         fields = ['id', 'name', 'parent']
 
+class StudentNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = ['id', 'name']
+
 class SubjectSerializer(serializers.ModelSerializer):
+    students = StudentNameSerializer(many=True)
+
     class Meta:
         model = Subject
         fields = ['id', 'name', 'classMeta', 'students']
