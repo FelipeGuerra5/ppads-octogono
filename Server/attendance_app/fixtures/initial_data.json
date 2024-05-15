@@ -5,7 +5,7 @@
     "fields": {
       "name": "Fernanda",
       "username": "fernanda@example.com",
-      "password": "123",
+      "password": "pbkdf2_sha256$260000$GRhg6kkMCsAKp6Gu03Sxda$8bd7mJJMLBrenCPIdkh8zMeNVv2rU07T5Sc12aF3HJU=",
       "role": "Teacher",
       "is_active": true,
       "is_staff": true
