@@ -13,9 +13,9 @@ class ClassAttendanceView(APIView):
 
     def post(self, request, class_id):
         class_instance = get_object_or_404(Class, id=class_id)
-        serializer = ClassAttendanceSerializer(data=request.data)
+        serializer = ClassAttendanceSerializer(data=request.data, context={'class_instance': class_instance})
         if serializer.is_valid():
-            serializer.save(classMeta=class_instance)
+            serializer.save()
             return Response({"message": "Attendance records created successfully"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
