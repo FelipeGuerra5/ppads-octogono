@@ -182,6 +182,166 @@
     }
   },
   {
+    "model": "classes.class_students",
+    "pk": 1,
+    "fields": {
+      "class": 1,
+      "student": 1
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 2,
+    "fields": {
+      "class": 1,
+      "student": 2
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 3,
+    "fields": {
+      "class": 1,
+      "student": 3
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 4,
+    "fields": {
+      "class": 1,
+      "student": 4
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 5,
+    "fields": {
+      "class": 1,
+      "student": 5
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 6,
+    "fields": {
+      "class": 1,
+      "student": 6
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 7,
+    "fields": {
+      "class": 1,
+      "student": 7
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 8,
+    "fields": {
+      "class": 1,
+      "student": 8
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 9,
+    "fields": {
+      "class": 1,
+      "student": 9
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 10,
+    "fields": {
+      "class": 1,
+      "student": 10
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 11,
+    "fields": {
+      "class": 1,
+      "student": 11
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 12,
+    "fields": {
+      "class": 1,
+      "student": 12
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 13,
+    "fields": {
+      "class": 1,
+      "student": 13
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 14,
+    "fields": {
+      "class": 1,
+      "student": 14
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 15,
+    "fields": {
+      "class": 1,
+      "student": 15
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 16,
+    "fields": {
+      "class": 1,
+      "student": 16
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 17,
+    "fields": {
+      "class": 1,
+      "student": 17
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 18,
+    "fields": {
+      "class": 1,
+      "student": 18
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 19,
+    "fields": {
+      "class": 1,
+      "student": 19
+    }
+  },
+  {
+    "model": "classes.class_students",
+    "pk": 20,
+    "fields": {
+      "class": 1,
+      "student": 20
+    }
+  },
+  {
     "model": "classes.subject",
     "pk": 1,
     "fields": {
