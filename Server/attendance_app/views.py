@@ -11,12 +11,14 @@ from attendance_app.serializers import ClassAttendanceSerializer, AttendanceReco
 class ClassAttendanceView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def post(self, request):
+    def post(self, request, class_id):
+        class_instance = get_object_or_404(Class, id=class_id)
         serializer = ClassAttendanceSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(classMeta=class_instance)
             return Response({"message": "Attendance records created successfully"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class ClassStatisticsView(APIView):
