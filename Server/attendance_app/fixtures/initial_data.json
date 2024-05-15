@@ -196,5 +196,77 @@
       "name": "Matemática",
       "classMeta": 1
     }
+  },
+  {
+    "model": "classes.class",
+    "pk": 1,
+    "fields": {
+      "period": "Morning",
+      "schoolGrade": 1,
+      "classMeta": "Math",
+      "teacher": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 1,
+    "fields": {
+      "name": "Student One"
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 2,
+    "fields": {
+      "name": "Student Two"
+    }
+  },
+  {
+    "model": "classes.subject",
+    "pk": 1,
+    "fields": {
+      "name": "Math",
+      "classMeta": 1
+    }
+  },
+  {
+    "model": "attendance_app.statistics",
+    "pk": 1,
+    "fields": {
+      "student": 1,
+      "classMeta": 1,
+      "total_classes": 10,
+      "attended_classes": 8
+    }
+  },
+  {
+    "model": "attendance_app.statistics",
+    "pk": 2,
+    "fields": {
+      "student": 2,
+      "classMeta": 1,
+      "total_classes": 10,
+      "attended_classes": 6
+    }
+  },
+  {
+    "model": "attendance_app.attendancerecord",
+    "pk": 1,
+    "fields": {
+      "classMeta": 1,
+      "student": 1,
+      "attending": true,
+      "date": "2023-05-15"
+    }
+  },
+  {
+    "model": "attendance_app.attendancerecord",
+    "pk": 2,
+    "fields": {
+      "classMeta": 1,
+      "student": 2,
+      "attending": false,
+      "date": "2023-05-15"
+    }
   }
 ]
