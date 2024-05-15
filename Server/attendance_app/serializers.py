@@ -1,12 +1,12 @@
 from rest_framework import serializers
 from django.db import transaction
-from .models import Class, AttendanceRecord, Student, Teacher
-
+from classes.models import Class, Student
+from attendance_app.models import AttendanceRecord, Statistics
+from users.models import Teacher  # Corrigida a importação
 
 class StudentAttendanceSerializer(serializers.Serializer):
     student = serializers.IntegerField()
     attending = serializers.BooleanField()
-
 
 class ClassAttendanceSerializer(serializers.Serializer):
     period = serializers.CharField(max_length=50)
@@ -20,7 +20,6 @@ class ClassAttendanceSerializer(serializers.Serializer):
         students_data = validated_data.pop('studentsList')
         teacher_id = validated_data.pop('teacher')
 
-        # Usando o ID do professor para obter a instância do Professor
         teacher = Teacher.objects.get(pk=teacher_id)
 
         with transaction.atomic():
@@ -41,6 +40,18 @@ class ClassAttendanceSerializer(serializers.Serializer):
                 )
         return class_instance
 
+class AttendanceRecordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AttendanceRecord
+        fields = ['id', 'classMeta', 'student', 'attending', 'date']
+
+class StatisticsSerializer(serializers.ModelSerializer):
+    attendance_percentage = serializers.ReadOnlyField()
+
+    class Meta:
+        model = Statistics
+        fields = ['id', 'student', 'classMeta', 'total_classes', 'attended_classes', 'attendance_percentage']
+
 class StudentListSerializer(serializers.ModelSerializer):
     attending = serializers.SerializerMethodField()
 
@@ -49,7 +60,6 @@ class StudentListSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'attending')
 
     def get_attending(self, obj):
-        # Assumindo que 'context' tem a data especificada para filtrar
         date = self.context.get('date')
         attendance_record = AttendanceRecord.objects.filter(student=obj, date=date).first()
         return attendance_record.attending if attendance_record else None

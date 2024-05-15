@@ -1,13 +1,16 @@
-from django.shortcuts import get_object_or_404
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Class, Student
-from .models import AttendanceRecord
-from .serializers import ClassAttendanceSerializer
+from django.shortcuts import get_object_or_404
+from classes.models import Class, Student
+from attendance_app.models import AttendanceRecord, Statistics
+from attendance_app.serializers import ClassAttendanceSerializer, AttendanceRecordSerializer, StatisticsSerializer, StudentListSerializer
 
 
 class ClassAttendanceView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
         serializer = ClassAttendanceSerializer(data=request.data)
         if serializer.is_valid():
@@ -16,7 +19,27 @@ class ClassAttendanceView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class ClassStatisticsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, class_id):
+        class_instance = get_object_or_404(Class, id=class_id)
+        statistics = Statistics.objects.filter(classMeta=class_instance)
+        serializer = StatisticsSerializer(statistics, many=True)
+        return Response(serializer.data)
+
+class StudentStatisticsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, student_id):
+        student = get_object_or_404(Student, id=student_id)
+        statistics = Statistics.objects.filter(student=student)
+        serializer = StatisticsSerializer(statistics, many=True)
+        return Response(serializer.data)
+
 class AttendanceRecordView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         # Capturando os parâmetros da query
         period = request.query_params.get('period', None)

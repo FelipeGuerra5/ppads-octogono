@@ -1,33 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-
-class Teacher(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
-
-class Student(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
-
-class Class(models.Model):
-    period = models.CharField(max_length=50)
-    schoolGrade = models.IntegerField()
-    classMeta = models.CharField(max_length=100, db_column='class')
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together = ('period', 'schoolGrade', 'classMeta', 'teacher')
-
-    def __str__(self):
-        return f"{self.classMeta} - Grade {self.schoolGrade} - {self.period}"
-
+from classes.models import Class, Student
 
 
 class AttendanceRecord(models.Model):
@@ -38,3 +12,18 @@ class AttendanceRecord(models.Model):
 
     def __str__(self):
         return f"{self.student.name} - {'Present' if self.attending else 'Absent'} on {self.date}"
+
+class Statistics(models.Model):
+    student = models.ForeignKey('classes.Student', on_delete=models.CASCADE)
+    classMeta = models.ForeignKey('classes.Class', on_delete=models.CASCADE)
+    total_classes = models.IntegerField(default=0)
+    attended_classes = models.IntegerField(default=0)
+
+    @property
+    def attendance_percentage(self):
+        if self.total_classes > 0:
+            return (self.attended_classes / self.total_classes) * 100
+        return 0
+
+    def __str__(self):
+        return f"{self.student.name} - {self.classMeta.classMeta} - {self.attendance_percentage}%"
