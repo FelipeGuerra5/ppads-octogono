@@ -1,13 +1,18 @@
 [
   {
-    "model": "attendance_app.teacher",
+    "model": "users.teacher",
     "pk": 1,
     "fields": {
-      "name": "Fernanda"
+      "name": "Fernanda",
+      "username": "fernanda@example.com",
+      "password": "123",
+      "role": "Teacher",
+      "is_active": true,
+      "is_staff": true
     }
   },
   {
-    "model": "attendance_app.class",
+    "model": "classes.class",
     "pk": 1,
     "fields": {
       "period": "afternoon",
@@ -17,143 +22,179 @@
     }
   },
   {
-  "model": "attendance_app.student",
-  "pk": 1,
-  "fields": {
-    "name": "João Silva"
+    "model": "classes.student",
+    "pk": 1,
+    "fields": {
+      "name": "João Silva",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 2,
+    "fields": {
+      "name": "Maria Oliveira",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 3,
+    "fields": {
+      "name": "Lucas Santos",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 4,
+    "fields": {
+      "name": "Ana Costa",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 5,
+    "fields": {
+      "name": "Felipe Souza",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 6,
+    "fields": {
+      "name": "Julia Rocha",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 7,
+    "fields": {
+      "name": "Pedro Almeida",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 8,
+    "fields": {
+      "name": "Carla Lima",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 9,
+    "fields": {
+      "name": "André Pereira",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 10,
+    "fields": {
+      "name": "Fernanda Gomes",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 11,
+    "fields": {
+      "name": "Gabriel Martins",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 12,
+    "fields": {
+      "name": "Camila Leão",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 13,
+    "fields": {
+      "name": "Rafael Barros",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 14,
+    "fields": {
+      "name": "Patricia Figueiredo",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 15,
+    "fields": {
+      "name": "Bruno Oliveira",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 16,
+    "fields": {
+      "name": "Sofia Cardoso",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 17,
+    "fields": {
+      "name": "Tiago Silva",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 18,
+    "fields": {
+      "name": "Leticia Souza",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 19,
+    "fields": {
+      "name": "Caio Cunha",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.student",
+    "pk": 20,
+    "fields": {
+      "name": "Isabela Dias",
+      "parent": 1
+    }
+  },
+  {
+    "model": "classes.subject",
+    "pk": 1,
+    "fields": {
+      "name": "Português",
+      "classMeta": 1
+    }
+  },
+  {
+    "model": "classes.subject",
+    "pk": 2,
+    "fields": {
+      "name": "Matemática",
+      "classMeta": 1
+    }
   }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 2,
-  "fields": {
-    "name": "Maria Oliveira"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 3,
-  "fields": {
-    "name": "Lucas Santos"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 4,
-  "fields": {
-    "name": "Ana Costa"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 5,
-  "fields": {
-    "name": "Felipe Souza"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 6,
-  "fields": {
-    "name": "Julia Rocha"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 7,
-  "fields": {
-    "name": "Pedro Almeida"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 8,
-  "fields": {
-    "name": "Carla Lima"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 9,
-  "fields": {
-    "name": "André Pereira"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 10,
-  "fields": {
-    "name": "Fernanda Gomes"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 11,
-  "fields": {
-    "name": "Gabriel Martins"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 12,
-  "fields": {
-    "name": "Camila Leão"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 13,
-  "fields": {
-    "name": "Rafael Barros"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 14,
-  "fields": {
-    "name": "Patricia Figueiredo"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 15,
-  "fields": {
-    "name": "Bruno Oliveira"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 16,
-  "fields": {
-    "name": "Sofia Cardoso"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 17,
-  "fields": {
-    "name": "Tiago Silva"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 18,
-  "fields": {
-    "name": "Leticia Souza"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 19,
-  "fields": {
-    "name": "Caio Cunha"
-  }
-},
-{
-  "model": "attendance_app.student",
-  "pk": 20,
-  "fields": {
-    "name": "Isabela Dias"
-  }
-}
 ]
