@@ -346,7 +346,8 @@
     "pk": 1,
     "fields": {
       "name": "Português",
-      "classMeta": 1
+      "classMeta": 1,
+      "students": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     }
   },
   {
@@ -354,7 +355,8 @@
     "pk": 2,
     "fields": {
       "name": "Matemática",
-      "classMeta": 1
+      "classMeta": 1,
+      "students": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     }
   },
   {
