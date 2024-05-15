@@ -18,3 +18,8 @@ class ClassSerializer(serializers.ModelSerializer):
     class Meta:
         model = Class
         fields = ['id', 'period', 'schoolGrade', 'classMeta', 'teacher', 'students', 'subjects']
+
+class StudentListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = ('id', 'name')
