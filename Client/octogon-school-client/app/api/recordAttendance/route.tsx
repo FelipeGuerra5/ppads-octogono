@@ -10,6 +10,7 @@ export async function POST(req: Request) {
                 }
             })
         var response = await res.json()
+        window.alert(`${response}`)
 
     } catch (error) {
         console.log('Unable to Record Attendance', error)
