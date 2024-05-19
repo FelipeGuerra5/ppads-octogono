@@ -4,7 +4,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from .models import Class, Subject, Student
-from .serializers import ClassSerializer, SubjectSerializer, StudentSerializer, StudentListSerializer
+from .serializers import SubjectSerializer, StudentSerializer, StudentListSerializer, \
+    TeacherClassSerializer
 from attendance_app.models import Statistics
 from attendance_app.serializers import StatisticsSerializer
 
@@ -13,8 +14,8 @@ class ClassListView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        classes = Class.objects.filter(teacher=request.user)
-        serializer = ClassSerializer(classes, many=True)
+        teacher = request.user
+        serializer = TeacherClassSerializer(teacher)
         return Response(serializer.data)
 
 
