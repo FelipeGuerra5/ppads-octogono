@@ -33,3 +33,19 @@ type ClassRoom = {
         "attending": true
     }[]
 }
+
+type Teacher = {
+    teacher: string,
+    teacherId: string,
+}
+
+type Classes = {
+    "teacher": string,
+    "teacherId": number,
+    "classes": {
+        "class": string,
+        "Room": string,
+        "Grade": number,
+        "Period": string
+    }[];
+}

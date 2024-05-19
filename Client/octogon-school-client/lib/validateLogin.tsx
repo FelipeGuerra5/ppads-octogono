@@ -5,24 +5,34 @@ type Props = {
     }
 }
 
-export default async function validateLogin({ params }: Props) {
+export default async function validateLogin({ params }: Props): Promise<string> {
     if (params.login == undefined || params.password == undefined) {
-        window.alert("login or password are undefined!")
+        throw new Error("login or password are undefined!");
     }
+
     try {
-        const res = await fetch('http://localhost:3000/api/login',
-            {
-                method: 'POST',
-                body: JSON.stringify(params),
-                headers: {
-                    'Content-Type': 'Application/json'
-                }
-            })
-        var response = await res.json()
-        window.alert(response)
+        let body = {
+            username: params.login,
+            password: params.password
+        }
+
+        const res = await fetch('/api/login', {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!res.ok) {
+            throw new Error('Failed to log in');
+        }
+
+        const response = await res.json();
+        return response.access;  // Assuming response.access is the token you need
 
     } catch (error) {
-        console.log("Unable to LogIn: ", error)
-        window.alert(`Unable to LogIn: ${error}`)
+        console.error("Unable to LogIn: ", error);
+        throw new Error(`Unable to LogIn: ${error}`);
     }
 }
