@@ -15,14 +15,14 @@ export default async function Home({ params }: { params: Teacher }) {
                 classes.classes.map((i) => (
                     <Link
                         className={Styles.block}
-                        href={`./${teacherId}/${i.Grade}`}
+                        href={`./${teacherId}/${i.grade}`}
                     >
 
                         <div>
                             Clase: {i.class}
                         </div>
                         <div>
-                            Sala: {i.Room}
+                            Sala: {i.room}
                         </div>
                     </Link>
                 ))

@@ -43,9 +43,9 @@ type Classes = {
     "teacher": string,
     "teacherId": number,
     "classes": {
-        "class": string,
-        "Room": string,
-        "Grade": number,
-        "Period": string
+        "class": string
+        "room": string
+        "grade": string
+        "period": string
     }[];
 }
